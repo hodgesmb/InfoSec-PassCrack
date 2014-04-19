@@ -1,0 +1,39 @@
+DFSC 4317 Information Security
+Lab Assignment 1 (L1)
+80 points + bonus 30 points
+Due: 11:59:59 pm, Friday, April 25, 2014
+One of the team members should send the completed assignment/lab documents (including source code) as attachment to shsu.chen@gmail.com by due time with subject “DFSC 4317 L1” and copy (“cc”) email to all team members. Team size can be two or three students.
+
+Password Cracking
+Part I (80 points)
+Suppose you have acquired a password hash file with only one hash value “de80593878cb1673c62a7f338dc7e4e1”, and you are asked to use dictionary attack to crack this password. You are told that the password associated with this hash was created using only lower case English letters and the hash function used is MD5 with no salt.
+You are not allowed to use any existing password cracking tools, and therefore you will need to write your own code.
+You can download a common password dictionary from the internet. Common dictionary may contain 1 million to 4 million commonly used passwords. Search online to find common dictionaries.
+Use your own program to perform a dictionary attack against the above hash. Place a counter for dictionary words hashed and time your actual attack.
+Log your project design and development on the following pages. (10 points)
+Submit logs, all source code, instructions of how to compile and run your code, link to dictionary used, and all other relevant documents. (50 points)
+Team presents your work in the last week of class
+PowerPoint slides (10 points)
+Presentation (10 points)
+
+Part II (bonus 30 points)
+Write a program to perform an Exhaustive Key Search attack over a password hash “b4220cfc4b4f08ba7608956989597fd5”. You are given the information that the password is exactly 6-character long using only UPPER case English letters with no salt. Your goal is to find the password using your program and time the actual attack. Log your design and development process. Also cover it in your team’s final presentation.
+Log starts here:
+Team members:
+Montana Hodges
+Richard Trottier
+Aaron Mayo
+Stephanie Foster
+
+Start date and time:
+Part 1: April 10, 2014 @ 8:14P.M.
+
+
+
+Completion date and time:
+Part 1: April 18, 2014 7:33 P.M.
+
+
+
+Approximate total number of work hours: 
+Part 1: 21 hours
