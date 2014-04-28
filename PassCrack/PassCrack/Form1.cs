@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +23,9 @@ namespace PassCrack
         private bool found = false;
         private int wordCount = 0;
         private Thread hashingThread;
+        private Thread timerThread;
+        private Stopwatch watch;
+        private TimeSpan ts;
         private OpenFileDialog openFile;
         private StreamReader fileStream;
         private String fileName = "";
@@ -81,6 +84,7 @@ namespace PassCrack
 
             inputHashString = hashInputField.Text;
             hashingThread = new Thread(new ThreadStart(findHash));
+            timerThread = new Thread(new ThreadStart(stopWatch));
 
             try
             {
@@ -100,6 +104,21 @@ namespace PassCrack
 
         private void findHash()
         {
+
+            try
+            {
+
+                timerThread.Start();
+
+            }
+
+            catch(ThreadStateException)
+            {
+
+                MessageBox.Show("ERROR:  Could not start hashing thread.  Please close the program and try again.", "PassCrack Password Cracker", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
 
             if (String.IsNullOrEmpty(fileName) == true)
             {
@@ -139,7 +158,7 @@ namespace PassCrack
 
                     found = true;
                     safeSetPasswdResLblText(inputString);
-
+                    watch.Stop();
                     MessageBox.Show("Password found!  The password is \'" + inputString + "\'.", "PassCrack Password Cracker", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 }
@@ -153,6 +172,24 @@ namespace PassCrack
 
                 MessageBox.Show("Password not found!  The dictionary does not contain the password.  Please try another dictionary file.", "PassCrack Password Cracker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
+
+            }
+
+        }
+
+        private void stopWatch()
+        {
+
+            String timeStr;
+            watch = new Stopwatch();
+            watch.Start();
+
+            while (watch.IsRunning == true)
+            {
+
+                ts = watch.Elapsed;
+                timeStr = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                safeSetTimeLblText(timeStr);
 
             }
 
@@ -173,6 +210,26 @@ namespace PassCrack
             {
 
                 this.currentWordLbl.Text = update;
+
+            }
+
+        }
+
+        private void safeSetWordCountLblText(String update)
+        {
+
+            if (this.wordCountNumLbl.InvokeRequired)
+            {
+
+                SetTextCallback d = new SetTextCallback(safeSetWordCountLblText);
+                this.Invoke(d, new object[] { update });
+
+            }
+
+            else
+            {
+
+                this.wordCountNumLbl.Text = update;
 
             }
 
@@ -220,13 +277,13 @@ namespace PassCrack
 
         }
 
-        private void safeSetWordCountLblText(String update)
+        private void safeSetTimeLblText(String update)
         {
 
-            if (this.wordCountNumLbl.InvokeRequired)
+            if (this.timeLbl.InvokeRequired)
             {
 
-                SetTextCallback d = new SetTextCallback(safeSetWordCountLblText);
+                SetTextCallback d = new SetTextCallback(safeSetTimeLblText);
                 this.Invoke(d, new object[] { update });
 
             }
@@ -234,9 +291,18 @@ namespace PassCrack
             else
             {
 
-                this.wordCountNumLbl.Text = update;
+                this.timeLbl.Text = update;
 
             }
+
+        }
+
+        private void PassCrackForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            timerThread.Abort();
+            hashingThread.Abort();
+            Application.Exit();
 
         }
 

@@ -1,4 +1,4 @@
-namespace PassCrack
+﻿namespace PassCrack
 {
     partial class EnterFileNameForm
     {

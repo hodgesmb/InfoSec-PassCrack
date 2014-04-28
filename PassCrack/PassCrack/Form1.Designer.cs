@@ -1,4 +1,4 @@
-namespace PassCrack
+﻿namespace PassCrack
 {
     partial class PassCrackForm
     {
@@ -44,7 +44,7 @@ namespace PassCrack
             this.wordCountLbl = new System.Windows.Forms.Label();
             this.wordCountNumLbl = new System.Windows.Forms.Label();
             this.TimeCtrLbl = new System.Windows.Forms.Label();
-            this.totalTimeCountLbl = new System.Windows.Forms.Label();
+            this.timeLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dictionaryLbl
@@ -193,22 +193,22 @@ namespace PassCrack
             this.TimeCtrLbl.TabIndex = 21;
             this.TimeCtrLbl.Text = "Total Time: ";
             // 
-            // totalTimeCountLbl
+            // timeLbl
             // 
-            this.totalTimeCountLbl.AutoSize = true;
-            this.totalTimeCountLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTimeCountLbl.Location = new System.Drawing.Point(186, 213);
-            this.totalTimeCountLbl.Name = "totalTimeCountLbl";
-            this.totalTimeCountLbl.Size = new System.Drawing.Size(20, 24);
-            this.totalTimeCountLbl.TabIndex = 22;
-            this.totalTimeCountLbl.Text = "0";
+            this.timeLbl.AutoSize = true;
+            this.timeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLbl.Location = new System.Drawing.Point(186, 213);
+            this.timeLbl.Name = "timeLbl";
+            this.timeLbl.Size = new System.Drawing.Size(105, 24);
+            this.timeLbl.TabIndex = 22;
+            this.timeLbl.Text = "00:00:00:00";
             // 
             // PassCrackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 308);
-            this.Controls.Add(this.totalTimeCountLbl);
+            this.Controls.Add(this.timeLbl);
             this.Controls.Add(this.TimeCtrLbl);
             this.Controls.Add(this.wordCountLbl);
             this.Controls.Add(this.wordCountNumLbl);
@@ -228,6 +228,7 @@ namespace PassCrack
             this.MaximizeBox = false;
             this.Name = "PassCrackForm";
             this.Text = "PassCrack Password Cracking";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PassCrackForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +251,7 @@ namespace PassCrack
         private System.Windows.Forms.Label wordCountLbl;
         private System.Windows.Forms.Label wordCountNumLbl;
         private System.Windows.Forms.Label TimeCtrLbl;
-        private System.Windows.Forms.Label totalTimeCountLbl;
+        private System.Windows.Forms.Label timeLbl;
     }
 }
 
