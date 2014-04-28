@@ -7,3 +7,6 @@ C:\Users\hodgesmb\Documents\Visual Studio 2012\Projects\PassCrack\PassCrack\obj\
 C:\Users\hodgesmb\Documents\Visual Studio 2012\Projects\PassCrack\PassCrack\obj\Debug\PassCrack.exe
 C:\Users\hodgesmb\Documents\Visual Studio 2012\Projects\PassCrack\PassCrack\obj\Debug\PassCrack.pdb
 C:\Users\hodgesmb\Documents\Visual Studio 2012\Projects\PassCrack\PassCrack\obj\Debug\PassCrack.csprojResolveAssemblyReference.cache
+C:\Users\hodgesmb\Documents\GitHub\InfoSec-PassCrack\PassCrack\PassCrack\bin\Debug\PassCrack.exe.config
+C:\Users\hodgesmb\Documents\GitHub\InfoSec-PassCrack\PassCrack\PassCrack\obj\Debug\PassCrack.exe
+C:\Users\hodgesmb\Documents\GitHub\InfoSec-PassCrack\PassCrack\PassCrack\obj\Debug\PassCrack.pdb
